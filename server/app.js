@@ -2,6 +2,12 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Root route
+app.get('/', (req, res) => {
+  res.send('Welcome to my Node.js backend on Azure!');
+});
+
+// Existing API route
 app.get('/api/message', (req, res) => {
   res.json({ message: 'Hello from Node.js backend on Azure!' });
 });
