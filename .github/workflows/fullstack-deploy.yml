@@ -1,0 +1,46 @@
+name: Build and Deploy Full-Stack App to Azure App Service
+
+on:
+  push:
+    branches:
+      - main  # Or your working branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      # 👉 Step 1: Install and build React frontend
+      - name: Install Frontend Dependencies
+        run: npm install
+        working-directory: frontend
+
+      - name: Build Frontend
+        run: npm run build
+        working-directory: frontend
+
+      # 👉 Step 2: Copy build output to backend directory
+      - name: Copy Build to Server
+        run: cp -r frontend/build server/build
+
+      # 👉 Step 3: Install backend dependencies
+      - name: Install Backend Dependencies
+        run: npm install
+        working-directory: server
+
+      # 👉 Step 4: Deploy to Azure App Service
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: mywebserviceapp-fqd4bvb9hehfeha5  # 🔁 Use your exact app service name
+          slot-name: production
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: server
