@@ -26,6 +26,11 @@ jobs:
       - name: Build Frontend
         run: npm run build
         working-directory: frontend
+        
+      - name: Copy React build to server/build
+        run: 
+        rm -rf server/build
+       cp -r frontend/build server/
 
       # 👉 Step 2: Copy build output to backend directory
       - name: Copy Build to Server
