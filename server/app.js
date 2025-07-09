@@ -8,7 +8,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // 👉 API route
 app.get('/api/message', (req, res) => {
-  res.json({ message: 'I am the best!' });
+  res.json({ message: 'We are best!' });
 });
 
 // 👉 Fallback: all other routes go to React's index.html
