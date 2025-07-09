@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 
 // Existing API route
 app.get('/api/message', (req, res) => {
-  res.json({ message: 'Hello from Node.js backend on Azure!' });
+  res.json({ message: 'I am the best!' });
 });
 
 app.listen(port, () => {
