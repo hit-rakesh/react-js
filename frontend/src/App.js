@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import RKSImage from './RKS.jpeg'; // 👈 Import the image
 
 function App() {
   const [message, setMessage] = useState('');
@@ -10,27 +11,23 @@ function App() {
   }, []);
 
   return (
-    <div style={{ textAlign: 'center', padding: '40px', fontFamily: 'Arial' }}>
-      <h1>🚀 Welcome to My Full-Stack App</h1>
+    <div style={{ textAlign: 'center', padding: '30px' }}>
+      <h1>🚀 Welcome to My App</h1>
+      <p>Backend message: {message}</p>
 
-      <h2 style={{ color: '#0078D4' }}>🔊 Message from Backend:</h2>
-      <p style={{ fontSize: '1.3rem', marginBottom: '30px' }}>{message}</p>
-
-      <hr style={{ margin: '40px auto', width: '60%' }} />
-
-      <h2>🖼️ Featured Image</h2>
-
+      <h2>🖼️ My Picture</h2>
       <img
-        src="/RKS.jpeg"
+        src={RKSImage}
         alt="RKS"
         style={{
-          width: '350px',
-          borderRadius: '16px',
-          boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
+          width: '300px',
+          borderRadius: '12px',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
           marginTop: '20px'
         }}
       />
     </div>
   );
 }
+
 export default App;
