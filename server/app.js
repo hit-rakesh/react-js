@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 // MySQL pool with hardcoded credentials
 const pool = mysql.createPool({
   host: 'mydebsqlapp.mysql.database.azure.com',
-  user: 'admin01',
+  user: 'admin01@mynewdb',
   password: 'India@123', // 👈 Hardcoded password (for POC only)
   database: 'mynewapp',
   port: 3306,
