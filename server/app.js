@@ -22,7 +22,7 @@ const pool = mysql.createPool({
   host: process.env.DB_HOST || 'mydebsqlapp.mysql.database.azure.com',
   user: process.env.DB_USER || 'admin01',
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME || 'myapp',
+  database: process.env.DB_NAME || 'mynewapp',
   port: 3306,
   waitForConnections: true,
   connectionLimit: 10,
